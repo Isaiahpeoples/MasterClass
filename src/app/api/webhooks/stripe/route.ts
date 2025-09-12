@@ -71,7 +71,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 		session.metadata &&
 		session.metadata.courseTitle &&
 		session.metadata.courseImageUrl &&
-		// process.env.NODE_ENV === "development"
+		process.env.NODE_ENV === "development"
 	) {
 		await resend.emails.send({
 			from: "MasterClass <onboarding@resend.dev>",
