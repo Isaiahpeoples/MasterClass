@@ -74,7 +74,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 		process.env.NODE_ENV === "production"
 	) {
 		await resend.emails.send({
-			from: "MasterClass <onboarding@resend.dev>",
+			from: "master-class.fun",
 			to: user.email,
 			subject: "Purchase Confirmed",
 			react: PurchaseConfirmationEmail({
@@ -117,7 +117,7 @@ async function handleSubscriptionUpsert(subscription: Stripe.Subscription, event
 
 		if (isCreation && process.env.NODE_ENV === "production") {
 			await resend.emails.send({
-				from: "MasterClass <onboarding@resend.dev>",
+				from: "master-class.fun",
 				to: user.email,
 				subject: "Welcome to MasterClass Pro!",
 				react: ProPlanActivatedEmail({
