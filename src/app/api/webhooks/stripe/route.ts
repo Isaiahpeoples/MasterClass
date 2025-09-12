@@ -71,20 +71,20 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 		session.metadata &&
 		session.metadata.courseTitle &&
 		session.metadata.courseImageUrl &&
-		process.env.NODE_ENV === "development"
+
 	) {
 		await resend.emails.send({
-      from: 'MasterClass <master-class.fun@resend.dev>',
-      to: user.email,
-      subject: 'Purchase Confirmed',
-      react: PurchaseConfirmationEmail({
-        customerName: user.name,
-        courseTitle: session.metadata?.courseTitle,
-        courseImage: session.metadata?.courseImageUrl,
-        courseUrl: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${courseId}`,
-        purchaseAmount: session.amount_total! / 100,
-      }),
-    })
+			from: "MasterClass <onboardingmasterclass@gmail.com>",
+			to: user.email,
+			subject: "Purchase Confirmed",
+			react: PurchaseConfirmationEmail({
+				customerName: user.name,
+				courseTitle: session.metadata?.courseTitle,
+				courseImage: session.metadata?.courseImageUrl,
+				courseUrl: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${courseId}`,
+				purchaseAmount: session.amount_total! / 100,
+			}),
+		});
 	}
 }
 
