@@ -74,7 +74,7 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 		process.env.NODE_ENV === "production"
 	) {
 		await resend.emails.send({
-      from: 'MasterClass <icp720@yahoo.com>',
+      from: 'MasterClass <master-class.fun@master-class.fun>',
       to: user.email,
       subject: 'Purchase Confirmed',
       react: PurchaseConfirmationEmail({
@@ -117,17 +117,17 @@ async function handleSubscriptionUpsert(subscription: Stripe.Subscription, event
 
 		if (isCreation && process.env.NODE_ENV === "production") {
 			await resend.emails.send({
-				from: "MasterClass <icp720@yahoo.com>",
-				to: user.email,
-				subject: "Welcome to MasterClass Pro!",
-				react: ProPlanActivatedEmail({
-					name: user.name,
-					planType: subscription.items.data[0].plan.interval,
-					currentPeriodStart: subscription.current_period_start,
-					currentPeriodEnd: subscription.current_period_end,
-					url: process.env.NEXT_PUBLIC_APP_URL!,
-				}),
-			});
+        from: 'MasterClass <master-class.fun@master-class.fun>',
+        to: user.email,
+        subject: 'Welcome to MasterClass Pro!',
+        react: ProPlanActivatedEmail({
+          name: user.name,
+          planType: subscription.items.data[0].plan.interval,
+          currentPeriodStart: subscription.current_period_start,
+          currentPeriodEnd: subscription.current_period_end,
+          url: process.env.NEXT_PUBLIC_APP_URL!,
+        }),
+      })
 		}
 	} catch (error) {
 		console.error(`Error processing ${eventType} for subscription ${subscription.id}:`, error);
