@@ -115,7 +115,7 @@ async function handleSubscriptionUpsert(subscription: Stripe.Subscription, event
 
 		const isCreation = eventType === "customer.subscription.created";
 
-		if (isCreation && process.env.NODE_ENV === "development") {
+		if (isCreation && process.env.NODE_ENV === "production") {
 			await resend.emails.send({
 				from: "MasterClass <onboarding@resend.dev>",
 				to: user.email,
