@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://online-project-images.s3.us-east-2.amazonaws.com/masterclass/MasterClass+Logo-1.svg" height="75%" width="75%" alt="FlashCards Logo"/>
+</p>
+
 <div align="center" id="toc">
   <ul style="list-style: none">
     <summary>
