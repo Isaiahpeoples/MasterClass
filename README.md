@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://online-project-images.s3.us-east-2.amazonaws.com/masterclass/MasterClass+Logo-1.svg" height="75%" width="75%" alt="FlashCards Logo"/>
+  <img src="https://online-project-images.s3.us-east-2.amazonaws.com/masterclass/MasterClass+Logo-1.svg" height="65%" width="65%" alt="FlashCards Logo"/>
 </p>
 
 <div align="center" id="toc">
