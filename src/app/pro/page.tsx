@@ -252,7 +252,7 @@ const ProPage = () => {
 
 					<div className='mt-4 text-center'>
 						<p className='text-xs text-yellow-600'>
-							This test card information is from Stripe's official documentation and is safe for public display.
+							This test card information is from Stripe&apos;s official documentation and is safe for public display.
 						</p>
 					</div>
 				</div>

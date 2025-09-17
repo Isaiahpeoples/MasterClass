@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Clock, Rocket, Star } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-const SuccessPage = () => {
+const SuccessPageContent = () => {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const isYearly = searchParams.get("year") === "true";
@@ -78,4 +79,13 @@ const SuccessPage = () => {
 		</div>
 	);
 };
+
+const SuccessPage = () => {
+	return (
+		<Suspense fallback={<div className="container mx-auto px-4 py-8 md:py-16 max-w-4xl h-screen flex items-center justify-center">Loading...</div>}>
+			<SuccessPageContent />
+		</Suspense>
+	);
+};
+
 export default SuccessPage;
