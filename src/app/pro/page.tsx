@@ -136,13 +136,12 @@ const ProPage = () => {
 				))}
 			</div>
 
-			{/* Test Card Information - Development Only */}
-			{process.env.NODE_ENV === 'development' && (
+			{/* Test Card Information - Always Visible */}
 				<div className='mt-12 p-6 bg-yellow-50 border-2 border-yellow-200 rounded-lg'>
 					<div className='text-center mb-6'>
-						<h3 className='text-xl font-bold text-yellow-800 mb-2'>⚠️ Development Testing Only</h3>
+						<h3 className='text-xl font-bold text-yellow-800 mb-2'>⚠️ Stripe Test Card Information</h3>
 						<p className='text-yellow-700'>
-							Use these test card numbers in the Stripe checkout for development testing
+							Use these official Stripe test card numbers for testing payments (no real charges will be made)
 						</p>
 					</div>
 
@@ -220,9 +219,9 @@ const ProPage = () => {
 					</div>
 
 					<div className='mt-6 p-4 bg-green-50 border border-green-200 rounded-lg'>
-						<h4 className='font-semibold text-green-800 mb-3'>💳 Complete Example - Copy & Paste Ready</h4>
+						<h4 className='font-semibold text-green-800 mb-3'>💳 Complete Test Example - Copy & Paste Ready</h4>
 						<div className='bg-white p-4 rounded border border-green-200'>
-							<p className='text-sm font-medium text-green-800 mb-3'>Use these exact values in the Stripe checkout:</p>
+							<p className='text-sm font-medium text-green-800 mb-3'>Use these exact test values in the Stripe checkout:</p>
 							<div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm'>
 								<div>
 									<p className='font-medium text-gray-700'>Card Number:</p>
@@ -253,11 +252,10 @@ const ProPage = () => {
 
 					<div className='mt-4 text-center'>
 						<p className='text-xs text-yellow-600'>
-							This section is only visible in development mode and will not appear in production.
+							This test card information is from Stripe's official documentation and is safe for public display.
 						</p>
 					</div>
 				</div>
-			)}
 		</div>
 	);
 };
