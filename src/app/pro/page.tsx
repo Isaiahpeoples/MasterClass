@@ -52,7 +52,7 @@ const ProPage = () => {
 	};
 
 	return (
-		<div className='container mx-auto px-4 py-16 max-w-6xl h-screen'>
+		<div className='container mx-auto px-4 py-16 max-w-6xl min-h-screen pb-24'>
 			<h1 className='text-4xl font-bold text-center mb-4 text-gray-800'>Choose Your Pro Journey</h1>
 			<p className='text-xl text-center mb-12 text-gray-600'>
 				Unlock premium features and accelerate your learning
@@ -135,6 +135,129 @@ const ProPage = () => {
 					</Card>
 				))}
 			</div>
+
+			{/* Test Card Information - Development Only */}
+			{process.env.NODE_ENV === 'development' && (
+				<div className='mt-12 p-6 bg-yellow-50 border-2 border-yellow-200 rounded-lg'>
+					<div className='text-center mb-6'>
+						<h3 className='text-xl font-bold text-yellow-800 mb-2'>⚠️ Development Testing Only</h3>
+						<p className='text-yellow-700'>
+							Use these test card numbers in the Stripe checkout for development testing
+						</p>
+					</div>
+
+					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+						{/* Successful Cards */}
+						<div className='bg-white p-4 rounded-lg border border-yellow-200'>
+							<h4 className='font-semibold text-green-700 mb-3'>✅ Successful Payments</h4>
+							<div className='space-y-2 text-sm'>
+								<div>
+									<p className='font-medium'>Visa</p>
+									<p className='font-mono text-gray-600'>4242 4242 4242 4242</p>
+								</div>
+								<div>
+									<p className='font-medium'>Visa (Debit)</p>
+									<p className='font-mono text-gray-600'>4000 0566 5566 5556</p>
+								</div>
+								<div>
+									<p className='font-medium'>Mastercard</p>
+									<p className='font-mono text-gray-600'>5555 5555 5555 4444</p>
+								</div>
+								<div>
+									<p className='font-medium'>American Express</p>
+									<p className='font-mono text-gray-600'>3782 822463 10005</p>
+								</div>
+							</div>
+						</div>
+
+						{/* Declined Cards */}
+						<div className='bg-white p-4 rounded-lg border border-yellow-200'>
+							<h4 className='font-semibold text-red-700 mb-3'>❌ Declined Payments</h4>
+							<div className='space-y-2 text-sm'>
+								<div>
+									<p className='font-medium'>Generic Decline</p>
+									<p className='font-mono text-gray-600'>4000 0000 0000 0002</p>
+								</div>
+								<div>
+									<p className='font-medium'>Insufficient Funds</p>
+									<p className='font-mono text-gray-600'>4000 0000 0000 9995</p>
+								</div>
+								<div>
+									<p className='font-medium'>Expired Card</p>
+									<p className='font-mono text-gray-600'>4000 0000 0000 0069</p>
+								</div>
+								<div>
+									<p className='font-medium'>Incorrect CVC</p>
+									<p className='font-mono text-gray-600'>4000 0000 0000 0127</p>
+								</div>
+							</div>
+						</div>
+
+						{/* 3D Secure Cards */}
+						<div className='bg-white p-4 rounded-lg border border-yellow-200'>
+							<h4 className='font-semibold text-blue-700 mb-3'>🔐 3D Secure Required</h4>
+							<div className='space-y-2 text-sm'>
+								<div>
+									<p className='font-medium'>Requires Authentication</p>
+									<p className='font-mono text-gray-600'>4000 0025 0000 3155</p>
+								</div>
+								<div>
+									<p className='font-medium'>Always Authenticate</p>
+									<p className='font-mono text-gray-600'>4000 0027 6000 3184</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div className='mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg'>
+						<h4 className='font-semibold text-blue-800 mb-2'>📝 Additional Test Details</h4>
+						<div className='text-sm text-blue-700 space-y-1'>
+							<p><strong>Expiry Date:</strong> Any future date (e.g., 12/34)</p>
+							<p><strong>CVC:</strong> Any 3 digits for Visa/MC/Discover (4 digits for Amex)</p>
+							<p><strong>ZIP Code:</strong> Any valid postal code</p>
+							<p><strong>Name:</strong> Any name</p>
+						</div>
+					</div>
+
+					<div className='mt-6 p-4 bg-green-50 border border-green-200 rounded-lg'>
+						<h4 className='font-semibold text-green-800 mb-3'>💳 Complete Example - Copy & Paste Ready</h4>
+						<div className='bg-white p-4 rounded border border-green-200'>
+							<p className='text-sm font-medium text-green-800 mb-3'>Use these exact values in the Stripe checkout:</p>
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-4 text-sm'>
+								<div>
+									<p className='font-medium text-gray-700'>Card Number:</p>
+									<p className='font-mono text-lg text-gray-900 bg-gray-50 p-2 rounded border'>4242 4242 4242 4242</p>
+								</div>
+								<div>
+									<p className='font-medium text-gray-700'>Expiry Date:</p>
+									<p className='font-mono text-lg text-gray-900 bg-gray-50 p-2 rounded border'>12/34</p>
+								</div>
+								<div>
+									<p className='font-medium text-gray-700'>CVC:</p>
+									<p className='font-mono text-lg text-gray-900 bg-gray-50 p-2 rounded border'>123</p>
+								</div>
+								<div>
+									<p className='font-medium text-gray-700'>ZIP Code:</p>
+									<p className='font-mono text-lg text-gray-900 bg-gray-50 p-2 rounded border'>12345</p>
+								</div>
+								<div className='md:col-span-2'>
+									<p className='font-medium text-gray-700'>Cardholder Name:</p>
+									<p className='font-mono text-lg text-gray-900 bg-gray-50 p-2 rounded border'>John Doe</p>
+								</div>
+							</div>
+							<div className='mt-3 text-xs text-green-600'>
+								<p>✅ This combination will result in a successful test payment</p>
+							</div>
+						</div>
+					</div>
+
+					<div className='mt-4 text-center'>
+						<p className='text-xs text-yellow-600'>
+							This section is only visible in development mode and will not appear in production.
+						</p>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
